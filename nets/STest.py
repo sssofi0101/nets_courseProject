@@ -10,7 +10,7 @@ class MyTestCase(unittest.TestCase):
         n = S(e, w, c)
         self.assertEqual(isinstance(n, S), True)
         self.assertEqual(n.entries, None)
-        self.assertEqual(n.weights, [2, 1])
+        self.assertEqual(n.weights, None)
         self.assertEqual(n.current_value, 1)
 
 

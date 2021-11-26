@@ -6,6 +6,7 @@ class S(Neuron):
         """Constructor"""
         super().__init__(entries,weights,current_value)
         self.entries=None
+        self.weights = None
 
     def getValue(self):
         return self.current_value

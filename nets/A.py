@@ -4,11 +4,11 @@ from Neuron import Neuron
 class A(Neuron):
     # number - порядковый номер нейрона, такой же как индекс нейрона в списке у сети. Нужен для того, чтобы
     # получить соответствующий вес связи.
-    def getValue(self,number):
-        sum=0
-        for entry in self.entries:
-            sum+=entry.current_value*entry.weights[number] # порог = 0
-        self.current_value=sign(sum)
+    def getValue(self):
+        sum = 0
+        for i in range(len(self.entries)):
+            sum += self.entries[i].getValue() * self.weights[i] # порог = 0
+        self.current_value = sign(sum)
         return self.current_value
 
 

@@ -1,33 +1,36 @@
 import unittest
 from R import R
+from A import A
 from S import S
 
 
 class MyTestCase(unittest.TestCase):
-    def test_constr(self):
-        e = [1, 2]
-        w = [2, 1]
-        c = 1
-        n = R(e, w, c)
-        self.assertEqual(isinstance(n, R), True)
-        self.assertEqual(n.entries, [1,2])
-        self.assertEqual(n.weights, None)
-        self.assertEqual(n.current_value, 1)
     def test_func(self):
-        w1=[-1,0,1]
-        n1=S(None,w1,1)
-        w2 = [1, 0, 0]
-        n2 = S(None, w2, 0)
-        w3 = [-1, 1, -1]
-        n3 = S(None, w3, 1)
-        entries=[]
+        s1 = S(None, None, 1)
+        s2 = S(None, None, 0)
+        s3 = S(None, None, 1)
+        e1 = []
+        e1.append(s1)
+        e2 = []
+        e2.append(s2)
+        e3 = []
+        e3.append(s3)
+        w1 = [0]
+        w2 = [1]
+        w3 = [-1]
+        w = [1, 0, 1]
+        n1 = A(e1, w1)
+        n1.current_value = n1.getValue()
+        n2 = A(e2, w2)
+        n2.current_value = n2.getValue()
+        n3 = A(e3, w3)
+        n3.current_value = n3.getValue()
+        entries = []
         entries.append(n1)
         entries.append(n2)
         entries.append(n3)
-        r=R(entries)
-        self.assertEqual(r.getValue(2), 0)
-        self.assertEqual(r.getValue(1), 1)
-        self.assertEqual(r.getValue(0), -1)
+        r = R(entries, w)
+        self.assertEqual(r.getValue(), -1)
 
 
 if __name__ == '__main__':
