@@ -8,8 +8,10 @@ class A(Neuron):
         sum = 0
         for i in range(len(self.entries)):
             sum += self.entries[i].getValue() * self.weights[i] # порог = 0
-        self.current_value = sign(sum)
-        return self.current_value
+        #self.current_value = sign(sum)
+        #return self.current_value
+        return sum
+    # getValue -преактивация, current_value- постактивация
 
 
 def sign(x):

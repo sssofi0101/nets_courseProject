@@ -1,4 +1,5 @@
 import math
+import os
 import random
 
 from A import A
@@ -57,7 +58,7 @@ class Perceptron:
         for i in range(len(list_of_paths)):
             img = Image.open(list_of_paths[i])
             pix = img.load()
-            s1=[]
+            s1 = []
             for w in range(width):
                 for h in range(height):
                     if pix[w, h]==(0, 0, 0):
@@ -66,8 +67,20 @@ class Perceptron:
                         s1.append(0)
             training_data.append(s1)
         target_output = []
-
-
+        for i in range(len(list_of_paths)):
+            path = os.path.dirname(list_of_paths[i])
+            folder = os.path.basename(path)
+            target_output.append(folder)
+        training_count = len(list_of_paths)
+        #прямое распространение ошибки
+        for epoch in range(epoch_count):
+            for sample in range(training_count):
+                for node in range(self.A_layer):
+                    self.A_layer[node].current_value = logistic(self.A_layer[node].getValue())
+                for r in range(self.R_layer):
+                    self.R_layer[r].current_value=logistic(self.R_layer[r].getValue())
+                # постактивация - значение, которое должно получится
+                FE = self.R_layer[r].current_value - target_output[sample]
 
 
 

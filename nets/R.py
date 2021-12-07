@@ -8,9 +8,10 @@ class R(Neuron):
     def getValue(self):
         sum = 0
         for i in range(len(self.entries)):
-            sum += self.entries[i].getValue() * self.weights[i]  # порог = 0
-        self.current_value = sign(sum)
-        return self.current_value
+            sum += self.entries[i].current_value * self.weights[i]  # порог = 0
+        #self.current_value = sign(sum)
+        #return self.current_value
+        return sum
 
 
 def sign(x):
