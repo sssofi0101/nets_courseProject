@@ -1,3 +1,5 @@
+from random import random
+
 from Neuron import Neuron
 
 
@@ -6,18 +8,19 @@ class A(Neuron):
     # получить соответствующий вес связи.
     def getValue(self):
         sum = 0
+        threshold = random.randint(0, 15)  # случайное число
         for i in range(len(self.entries)):
-            sum += self.entries[i].getValue() * self.weights[i] # порог = 0
-        #self.current_value = sign(sum)
-        #return self.current_value
-        return sum
-    # getValue -преактивация, current_value- постактивация
+            sum += self.entries[i].getValue() * self.weights[i]
+        sum -= threshold
+        self.current_value = sign(sum)
+        return True #self.current_value
+    # было: getValue -преактивация, current_value- постактивация
 
 
 def sign(x):
-    if x>0:
+    if x > 0:
         return 1
-    elif x<0:
+    elif x <= 0:
         return -1
-    elif x==0:
-        return 0
+    """elif x == 0:
+        return 0"""
