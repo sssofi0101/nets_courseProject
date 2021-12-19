@@ -51,7 +51,7 @@ class Perceptron:
             return logistic(x) * (1 - logistic(x))
 
         l_speed = 1"""
-        epoch_count = 5
+        epoch_count = 50
 
         # передавать в этот метод уже training_data, а то что ниже перенести в основную программу
         training_data = []
@@ -84,23 +84,25 @@ class Perceptron:
                 for i in range(len(self.R_layer)):
                     self.R_layer[i].getValue()  # досюда можно перенести в get_result и вызывать уже его
                 for i in range(len(self.R_layer)):
-                    if i == target_output[sample]:  # номер р-нейрона соотв классу кот он определяет напр 0 нейрон определяет цифру 0
-                        if self.R_layer[target_output[sample]].current_value - target_output[sample] > 0:
-                            for j in range(self.R_layer[target_output[sample]].entries):
-                                if self.R_layer[target_output[sample]].entries[j] == 1:
-                                    self.R_layer[target_output[sample]].weights[j] -= 1
-                        elif self.R_layer[target_output[sample]].current_value - target_output[sample] < 0:
-                            for j in range(len(self.R_layer[target_output[sample]].entries)):
-                                if self.R_layer[target_output[sample]].entries[j] == 1:
-                                    self.R_layer[target_output[sample]].weights[j] += 1
+                    if i == int(target_output[sample]):  # номер р-нейрона соотв классу кот он определяет напр 0 нейрон определяет цифру 0
+                        # проверяем знак ошибки целевого r-нейрона
+                        if self.R_layer[int(target_output[sample])].current_value - 1 > 0:  #  -int(target_output[sample])
+                            for j in range(self.R_layer[int(target_output[sample])].entries):
+                                if self.R_layer[int(target_output[sample])].entries[j].current_value == 1:
+                                    self.R_layer[int(target_output[sample])].weights[j] -= 1
+                        elif self.R_layer[int(target_output[sample])].current_value - 1 < 0:
+                        #if self.R_layer[int(target_output[sample])].current_value - 1 < 0:
+                            for j in range(len(self.R_layer[int(target_output[sample])].entries)):
+                                if self.R_layer[int(target_output[sample])].entries[j].current_value == 1:
+                                    self.R_layer[int(target_output[sample])].weights[j] += 1
                     else:
-                        if self.R_layer[i].current_value - (-1) > 0:
+                        if self.R_layer[i].current_value - (-1) >0:  # знак ошибки нецелевого r-нейрона >0
                             for j in range(len(self.R_layer[i].entries)):
-                                if self.R_layer[i].entries[j] == 1:
+                                if self.R_layer[i].entries[j].current_value == 1:
                                     self.R_layer[i].weights[j] -= 1
-                        elif self.R_layer[i].current_value - (-1) < 0:
+                        elif self.R_layer[i].current_value - (-1) < 0:  # знак ошибки нецелевого r-нейрона<0
                             for j in range(len(self.R_layer[i].entries)):
-                                if self.R_layer[i].entries[j] == 1:
+                                if self.R_layer[i].entries[j].current_value == 1:
                                     self.R_layer[i].weights[j] += 1
         """
         #прямое распространение ошибки

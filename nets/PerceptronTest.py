@@ -7,7 +7,7 @@ from Perceptron import Perceptron
 
 class MyTestCase(unittest.TestCase):
     def test_result(self):
-        p = Perceptron(60, 18, 10)
+        p = Perceptron(60, 130, 10)
         list_of_paths = []
         list_of_paths.append('../dataset1/0/0.png')
         list_of_paths.append('../dataset1/1/1_1.png')
