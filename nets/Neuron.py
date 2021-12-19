@@ -1,5 +1,5 @@
 class Neuron:
-    def __init__(self, entries=None, weights=None, current_value=None):
+    def __init__(self, entries=[], weights=[], current_value=None):
         """Constructor"""
         self.entries = entries
         self.weights = weights
