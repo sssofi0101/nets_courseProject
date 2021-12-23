@@ -64,7 +64,7 @@
      <string>Получить</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="getClass">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -118,7 +118,7 @@
      <string>Класс: </string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="classTextbox">
     <property name="geometry">
      <rect>
       <x>80</x>
@@ -149,7 +149,10 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
+   <widget class="QMenu" name="loadImage">
+    <property name="accessibleName">
+     <string>loadImage</string>
+    </property>
     <property name="title">
      <string>Загрузить картинку</string>
     </property>
@@ -181,7 +184,7 @@
      <property name="title">
       <string>Перцептрон</string>
      </property>
-     <addaction name="action_3"/>
+     <addaction name="newPerceptron"/>
     </widget>
     <addaction name="menu_4"/>
     <addaction name="menu_5"/>
@@ -190,7 +193,14 @@
     <property name="title">
      <string>Обучить сеть</string>
     </property>
-    <addaction name="action_8"/>
+    <widget class="QMenu" name="menu">
+     <property name="title">
+      <string>Перцептрон</string>
+     </property>
+     <addaction name="addToDatasetPerceptron"/>
+     <addaction name="trainPerceptron_2"/>
+    </widget>
+    <addaction name="menu"/>
     <addaction name="action_9"/>
    </widget>
    <widget class="QMenu" name="menu_8">
@@ -200,14 +210,14 @@
     <addaction name="action_10"/>
     <addaction name="action_11"/>
    </widget>
-   <addaction name="menu"/>
+   <addaction name="loadImage"/>
    <addaction name="menu_2"/>
    <addaction name="menu_3"/>
    <addaction name="menu_7"/>
    <addaction name="menu_8"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action_3">
+  <action name="newPerceptron">
    <property name="text">
     <string>Количество классов</string>
    </property>
@@ -227,11 +237,6 @@
     <string>Сеть Хопфилда</string>
    </property>
   </action>
-  <action name="action_8">
-   <property name="text">
-    <string>Перцептрон</string>
-   </property>
-  </action>
   <action name="action_9">
    <property name="text">
     <string>Сеть Хопифлда</string>
@@ -245,6 +250,16 @@
   <action name="action_11">
    <property name="text">
     <string>Сеть Хопфилда</string>
+   </property>
+  </action>
+  <action name="addToDatasetPerceptron">
+   <property name="text">
+    <string>Добавить файл в датасет</string>
+   </property>
+  </action>
+  <action name="trainPerceptron_2">
+   <property name="text">
+    <string>Обучить</string>
    </property>
   </action>
  </widget>

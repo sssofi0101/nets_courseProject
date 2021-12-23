@@ -29,7 +29,7 @@ class MyTestCase(unittest.TestCase):
         list_of_paths.append('../dataset1/9/9_2.png')
         p.train(list_of_paths)
         image_data = []
-        img = Image.open('../dataset1/9/9_2.png')
+        img = Image.open('../dataset1/5/5_1.png')
         width = img.size[0]
         height = img.size[1]
         pix = img.load()
@@ -42,7 +42,7 @@ class MyTestCase(unittest.TestCase):
                 elif pix[w, h] == (255, 255, 255, 255):  # белый
                     s1.append(0)
         result = p.get_result(s1)
-        self.assertEqual(result, 9)
+        self.assertEqual(result, 5)
 
 
 if __name__ == '__main__':
