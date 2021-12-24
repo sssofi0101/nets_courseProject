@@ -9,11 +9,17 @@ from PIL import Image
 
 
 class Perceptron:
-    """S_layer - число S нейронов, соответствует числу входных пикселей,  A_layer - число A-нейронов, подбирается,
-     изначально пусть будет равно количеству изображений для обучения, R_layer - число R-нейронов,
-     число распознаваемых классов"""
+    """Класс нейронной сети перцептрон.S_layer - число S нейронов, соответствует числу входных пикселей,
+      A_layer - число A-нейронов, подбирается;
+       R_layer - число R-нейронов, число распознаваемых классов"""
     def __init__(self, S_layer_count,  A_layer_count, R_layer_count):
-        """Constructor"""
+        """
+        Конструктор. Инициализирует экземпляр сети перцептрон с количеством нейронов в слоях соответственно переданным
+        значениям параметров.
+        :param S_layer_count: Число S-нейронов.
+        :param A_layer_count: Число A-нейронов.
+        :param R_layer_count: Число R-нейронов.
+        """
         self.S_layer = []
         self.A_layer = []
         self.R_layer = []
@@ -26,7 +32,11 @@ class Perceptron:
             self.R_layer[i] = R(self.A_layer)
 
     def train(self, list_of_paths):
-
+        """
+        Метод "Обучить". Производит обучение перцептрона на основе переданного набора данных.
+        :param list_of_paths: Список путей к изображениям для обучения.
+        :return: Обученный перцептрон.
+        """
         im = Image.open(list_of_paths[0])
         width = im.size[0]
         height = im.size[1]
@@ -87,9 +97,9 @@ class Perceptron:
 
     def get_result(self, image_data):
         """
-        hhh
-        :param image_data:
-        :return:
+        Метод "Получить результат". Получает результат распознавания класса перцептроном.
+        :param image_data: Данные изображения, на котором определяется класс.
+        :return: Результат распознавания - класс.
         """
         for i in range(len(image_data)):
             self.S_layer[i].current_value = image_data[i]

@@ -200,8 +200,15 @@
      <addaction name="addToDatasetPerceptron"/>
      <addaction name="trainPerceptron_2"/>
     </widget>
+    <widget class="QMenu" name="menu_9">
+     <property name="title">
+      <string>Сеть Хопифлда</string>
+     </property>
+     <addaction name="action"/>
+     <addaction name="action_2"/>
+    </widget>
     <addaction name="menu"/>
-    <addaction name="action_9"/>
+    <addaction name="menu_9"/>
    </widget>
    <widget class="QMenu" name="menu_8">
     <property name="title">
@@ -237,11 +244,6 @@
     <string>Сеть Хопфилда</string>
    </property>
   </action>
-  <action name="action_9">
-   <property name="text">
-    <string>Сеть Хопифлда</string>
-   </property>
-  </action>
   <action name="action_10">
    <property name="text">
     <string>Перцептрон</string>
@@ -258,6 +260,16 @@
    </property>
   </action>
   <action name="trainPerceptron_2">
+   <property name="text">
+    <string>Обучить</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Добавить файл в датасет</string>
+   </property>
+  </action>
+  <action name="action_2">
    <property name="text">
     <string>Обучить</string>
    </property>

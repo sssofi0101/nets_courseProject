@@ -132,7 +132,7 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
          подменю "Перцептрон" меню "Обучить сеть". Запускает встроенное окно с проводником для выбора файла к загрузке.
         При выборе файла получает его абсолютный путь и добавляет его в список датасета для перцептрона -
          поля класса ExampleApp. Если этот метод не был вызван, то используется дефолтный датасет для перцептрона.
-        :return: Обновленный список набора данных для обучения перуептрона.
+        :return: Обновленный список набора данных для обучения перцептрона.
         """
         if self.default_dataset_perc:
             self.dataset_perc = []
@@ -156,6 +156,7 @@ class ExampleApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         """
         if self.image_data:
             result = self.perceptron.get_result(self.image_data)
+            self.classTextbox.setText("")
             self.classTextbox.setText(str(result))
         else:
             error = QMessageBox()
